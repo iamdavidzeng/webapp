@@ -1,0 +1,10 @@
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+__pycache__/
+venv/
+*.log
+.idea/
+migrations/
+
