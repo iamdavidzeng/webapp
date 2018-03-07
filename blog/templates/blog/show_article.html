@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+        {% for post in blog_list %}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.ctime }}</p>
+            <p>{{ post.content }}</p>
+        {% endfor %}
+    {% endblock %}
