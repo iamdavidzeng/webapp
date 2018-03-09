@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 
 # Create your models here.
@@ -17,6 +18,9 @@ class Article(models.Model):
         db_table = 't_blog_article'
         verbose_name = '文章'
         verbose_name_plural = verbose_name
+
+    def get_absolute_url(self):
+        return reverse('blog:detail', args=[str(self.id)])
 
     def __str__(self):
         return self.title + '------' + self.author

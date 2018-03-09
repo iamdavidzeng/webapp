@@ -3,10 +3,10 @@
 
 
 from django.conf.urls import url, include
-from .views import *
+from . import views
 
 urlpatterns = [
-    url(r'^all/', my_blog_list, name='all_blog'),
-    url(r'^hello/', hello, name='hello'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^article/(?P<pk>\d+)/$', views.ArticleDetailView.as_view(), name='detail'),
 
 ]

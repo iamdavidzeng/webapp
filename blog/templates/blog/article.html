@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{%block content %}
+{% if article %}
+    <h2>Title: {{ article.title }}</h2>
+    <p>Author: {{ article.author }}</p>
+    <p>TIME: {{ article.ctime }}</p>
+    <p>Content: {{ article.content}}</p>
+{% endif %}
+{% endblock %}

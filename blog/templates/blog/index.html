@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+{% if articles %}
+        {% for article in articles %}
+            <h2><a href="{{ article.get_absolute_url }}" >{{ article.title }}</a></h2>
+            <p>{{ article.ctime }}</p>
+            <p>{{ article.author }}</p>
+        {% endfor %}
+        {% else %}
+<p>There are no more articles.</p>
+{% endif %}
+    {% endblock %}
