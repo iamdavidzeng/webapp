@@ -16,8 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
+from rest_framework import routers
+from rest_framework_jwt.views import obtain_jwt_token
+from users.views import UserViewset
+
+router = routers.DefaultRouter()
+
+# 用户
+router.register(r'register', UserViewset, base_name='users')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls', namespace='blog'))
+    url(r'', include('comments.urls', namespace='comment')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'api/', include(router.urls)),
+
 ]

@@ -18,6 +18,7 @@ from django.shortcuts import get_object_or_404
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
+    context_object_name = 'articles'
 
     def get_queryset(self):
         return Article.objects.all()
