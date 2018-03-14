@@ -9,8 +9,12 @@ class UserProfile(models.Model):
     birth = models.DateField(verbose_name='生日', null=True)
     phone = models.CharField(verbose_name='手机', max_length=11, null=True, blank=True)
     email = models.EmailField(verbose_name='邮箱', null=True)
+    password = models.CharField(verbose_name='密码', max_length=20)
 
     class Meta:
         db_table = 't_users_info'
         verbose_name = '用户'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.first_name + self.last_name

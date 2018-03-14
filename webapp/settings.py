@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
-    'comments.apps.CommentsConfig',
 
 ]
 
