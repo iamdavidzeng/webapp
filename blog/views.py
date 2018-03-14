@@ -7,7 +7,7 @@ from django.views import generic
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from users.models import UserProfile
-
+from comments.forms import CommentForm
 
 # def index(request):
 #     """
@@ -28,6 +28,25 @@ class IndexView(generic.ListView):
 class ArticleDetailView(generic.DetailView):
     model = Article
     template_name = 'blog/article.html'
+    context_object_name = 'article'
+
+    def get(self, request, *args, **kwargs):
+        response = super(ArticleDetailView, self).get(request, *args, **kwargs)
+        return response
+
+    def get_object(self, queryset=None):
+        article = super(ArticleDetailView, self).get_object(queryset=None)
+        return article
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        form = CommentForm()
+        comment_list = self.object.comment_set.all()
+        context.update({
+            'form': form,
+            'comment_list': comment_list
+        })
+        return context
 
     # def article_detail_view(request, id):
     #     # try:
@@ -59,7 +78,7 @@ def register(request):
             return HttpResponse('此用户名已经被注册')
         else:
             q = UserProfile(first_name=first_name, last_name=last_name,
-                            birth=birth, phone=phone, email=email)
+                            birth=birth, phone=phone, email=email, password=password)
             q.save()
             return HttpResponse('用户注册成功')
     return render(request, 'blog/register.html')

@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'api/', include(router.urls)),
+    url(r'', include('comments.urls')),
 
 ]
