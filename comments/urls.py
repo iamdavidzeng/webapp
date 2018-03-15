@@ -6,5 +6,5 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^comment/article/(?P<pk>[0-9]+)/$', views.article_comment, name='comments'),
+    url(r'^comment/article/(?P<article_pk>[0-9]+)/$', views.article_comment, name='comments'),
 ]

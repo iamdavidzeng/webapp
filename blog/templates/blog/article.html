@@ -7,8 +7,7 @@
     <p>TIME: {{ article.ctime }}</p>
     <p>Content: {{ article.content}}</p>
 {% endif %}
-{% endblock %}
-<form action="{% url 'comments:article_comment' article.pk %}" method="post" class="comment-form">
+<form action="{% url 'comments:comments' article.pk %}" method="post" class="comment-form">
   {% csrf_token %}
   <div class="row">
     <div class="col-md-4">
@@ -42,3 +41,4 @@
   暂无评论
   {% endfor %}
 </ul>
+{% endblock %}

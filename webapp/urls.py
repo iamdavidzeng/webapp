@@ -28,7 +28,7 @@ router.register(r'register', UserViewset, base_name='users')
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
-    url(r'api/', include(router.urls)),
-    url(r'', include('comments.urls')),
+    url(r'^api/', include(router.urls)),
+    url(r'', include('comments.urls', namespace='comments')),
 
 ]

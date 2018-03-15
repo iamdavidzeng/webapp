@@ -11,7 +11,7 @@ from .forms import CommentForm
 
 def article_comment(request, article_pk):
 
-    article = get_object_or_404(Article, article_pk)
+    article = get_object_or_404(Article, pk=article_pk)
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
