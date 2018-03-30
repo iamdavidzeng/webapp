@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
     {% block content %}
+{%  if error_msg %}
+<p>{{ error_msg }}</p>
+{% endif %}
 {% if articles %}
         {% for article in articles %}
             <h2><a href="{{ article.get_absolute_url }}" >{{ article.title }}</a></h2>

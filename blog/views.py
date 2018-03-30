@@ -8,6 +8,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from users.models import UserProfile
 from comments.forms import CommentForm
+from django.db.models import Q
 
 # def index(request):
 #     """
@@ -95,3 +96,15 @@ def login(request):
         else:
             return HttpResponse('登陆失败,用户名或密码错误')
     return render(request, 'blog/login.html')
+
+
+def search(request):
+    q = request.GET.get('q')
+    error_msg = ''
+
+    if not q:
+        error_msg = '请输入关键词'
+        return render(request, 'blog/index.html', {'error_msg': error_msg})
+
+    articles = Article.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
+    return render(request, 'blog/index.html', {'error_msg': error_msg, 'articles': articles})
