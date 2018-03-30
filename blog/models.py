@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth import get_user_model
+from DjangoUeditor.models import UEditorField
 
 User = get_user_model()
 
@@ -11,7 +12,9 @@ class Article(models.Model):
     title = models.CharField(verbose_name='标题', max_length=20)
     author = models.CharField(verbose_name='作者', max_length=20, blank=True, null=True)
     ctime = models.DateTimeField(verbose_name='发布时间', auto_now_add=True)
-    content = models.CharField(verbose_name='文章内容', max_length=9999, blank=True, null=True)
+    content = UEditorField(verbose_name='内容', width=600, height=300, toolbars='full',
+                           imagePath='images/', filePath='', upload_settings={'imageMaxSize': 1204000,
+                            'videoPathFormat': "videos/%(basename)s_%(datetime)s.%(extname)s"}, default='')
     memo = models.CharField(verbose_name='备注', max_length=255, blank=True, null=True)
 
     class Meta:

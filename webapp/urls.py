@@ -19,6 +19,10 @@ from django.conf.urls import include
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 from users.views import UserViewset
+from django.views.static import serve
+from webapp.settings import MEDIA_ROOT
+
+import xadmin
 
 router = routers.DefaultRouter()
 
@@ -26,9 +30,11 @@ router = routers.DefaultRouter()
 router.register(r'register', UserViewset, base_name='users')
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', xadmin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^api/', include(router.urls)),
     url(r'', include('comments.urls', namespace='comments')),
+    url(r'^ueditor/', include('DjangoUeditor.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 
 ]
