@@ -21,6 +21,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from users.views import UserViewset
 from django.views.static import serve
 from webapp.settings import MEDIA_ROOT
+from blog.feeds import AllArticleRssFeed
 
 import xadmin
 
@@ -37,5 +38,6 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    url(r'^all/rss/$', AllArticleRssFeed(), name='rss'),
 
 ]
