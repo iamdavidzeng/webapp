@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-
+<div class="divclass-content">
 {% if article %}
     <h2>Title: {{ article.title }}</h2>
     {% block toc %}
@@ -15,29 +15,28 @@
     <p>Content: {{ article.content | safe }}</p>
 
 {% endif %}
-<form action="{% url 'comments:comments' article.pk %}" method="post" class="comment-form">
-  {% csrf_token %}
-  <div class="row">
-    <div class="col-md-4">
-      <label for="{{ form.name.id_for_label }}">名字：</label>
-      {{ form.name }}
+<form action="{% url 'comments:comments' article.pk %}" method="POST">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="{{ form.name.id_for_label }}">Username</label>
+    <input type="text" class="form-control" name="name" placeholder="Username">
       {{ form.name.errors }}
-    </div>
-    <div class="col-md-4">
-      <label for="{{ form.email.id_for_label }}">邮箱：</label>
-      {{ form.email }}
+  </div>
+  <div class="form-group">
+    <label for="{{ form.email.id_for_label }}">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="Email">
       {{ form.email.errors }}
-    </div>
-    <div class="col-md-12">
-      <label for="{{ form.text.id_for_label }}">评论：</label>
-      {{ form.text }}
+  </div>
+  <div class="form-group">
+    <label for="{{ form.text.id_for_label }}">Text</label>
+    <input type="text" class="form-control" name="text" placeholder="Write your comment" >
       {{ form.text.errors }}
-      <button type="submit" class="comment-btn">发表</button>
-    </div>
-  </div>    <!-- row -->
+  </div>
+  <button type="submit" class="">Submit</button>
 </form>
 <ul class="comment-list list-unstyled">
   {% for comment in comment_list %}
+      <div class="list-group">
   <li class="comment-item">
     <span class="nickname">{{ comment.name }}</span>
     <time class="submit-date">{{ comment.created_time }}</time>
@@ -45,9 +44,11 @@
       {{ comment.text }}
     </div>
   </li>
+      </div>
   {% empty %}
   暂无评论
   {% endfor %}
 </ul>
+</div>
 
 {% endblock  %}

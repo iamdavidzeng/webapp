@@ -14,6 +14,7 @@ def article_comment(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
 
     if request.method == 'POST':
+        print(request.POST)
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
@@ -27,5 +28,5 @@ def article_comment(request, article_pk):
                 'form': form,
                 'comment_list': comment_list
             }
-            return render(request, 'blog/detail.html', context=context)
+            return render(request, 'blog/article.html', context=context)
     return redirect(article)
