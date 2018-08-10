@@ -21,4 +21,9 @@ def archives():
 
 @register.simple_tag
 def get_categories():
-    pass
+    return []
+
+
+@register.simple_tag
+def get_tags():
+    return []

@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Article
 
-from .models import Comment
 from .forms import CommentForm
 
 
@@ -14,7 +13,6 @@ def article_comment(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
 
     if request.method == 'POST':
-        print(request.POST)
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)

@@ -36,7 +36,6 @@ urlpatterns = [
     url(r'', include('users.urls', namespace='users')),
     url(r'', include('comments.urls', namespace='comments')),
     url(r'^api/', include(router.urls)),
-    url(r'^ueditor/', include('DjangoUeditor.urls')),
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     url(r'^all/rss/$', AllArticleRssFeed(), name='rss'),
 

@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'comments.apps.CommentsConfig',
     'xadmin',
-    'DjangoUeditor',
 ]
 
 MIDDLEWARE = [

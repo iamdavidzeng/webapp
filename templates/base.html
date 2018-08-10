@@ -58,7 +58,7 @@
                 <div id="header-search-box">
                     <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
                     <div id="search-form" class="search-form">
-                        <form role="search" method="get" id="searchform" action="{% url 'haystack_search' %}">
+                        <form role="search" method="get" id="searchform" action="{% url 'blog:search' %}">
                             <input type="search" name="q" placeholder="搜索" required>
                             <button type="submit"><span class="ion-ios-search-strong"></span></button>
                         </form>
@@ -83,7 +83,7 @@
                 {% endblock toc %}
                 <div class="widget widget-recent-posts">
                     <h3 class="widget-title">最新文章</h3>
-                    {% get_recent_posts as recent_post_list %}
+                    {% get_recent_articles as recent_post_list %}
                     <ul>
                         {% for post in recent_post_list %}
                             <li>
@@ -115,8 +115,8 @@
                     <ul>
                         {% for category in category_list %}
                             <li>
-                                <a href="{% url 'blog:category' category.pk %}">{{ category.name }} <span
-                                        class="post-count">({{ category.num_posts }})</span></a>
+                                <a href="#">{{ category }} <span
+                                        class="post-count">({{ category }})</span></a>
                             </li>
                         {% empty %}
                             暂无分类！
