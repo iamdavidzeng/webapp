@@ -8,7 +8,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^article/(?P<pk>\d+)/$', views.ArticleDetailView.as_view(), name='detail'),
-    url(r'^search', views.search, name='search'),
+    url(r'^search/$', views.search, name='search'),
 
 
 ]

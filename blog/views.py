@@ -2,13 +2,9 @@ from django.shortcuts import render
 import markdown
 
 # Create your views here.
-from .models import *
-from django.http import HttpResponse
+from blog.models import Article
 from django.views import generic
 from django.views.generic import ListView
-from django.http import Http404
-from django.shortcuts import get_object_or_404
-from users.models import UserProfile
 from comments.forms import CommentForm
 from django.db.models import Q
 from markdown.extensions.toc import TocExtension
@@ -19,7 +15,7 @@ class IndexView(ListView):
     model = Article
     template_name = 'blog/index.html'
     context_object_name = 'articles'
-    paginate_by = 5
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -90,6 +86,7 @@ class ArticleDetailView(generic.DetailView):
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetailView, self).get(request, *args, **kwargs)
+        self.object.increase_views()
         return response
 
     def get_object(self, queryset=None):

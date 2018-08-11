@@ -8,9 +8,9 @@ from .models import Article
 
 class AllArticleRssFeed(Feed):
 
-    title = 'Django 博客'
+    title = 'ZZY个人博客'
     link = '/'
-    description = 'Django 博客文章'
+    description = 'ZZY博客文章'
 
     def items(self):
         return Article.objects.all()
