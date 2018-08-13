@@ -28,7 +28,7 @@ SECRET_KEY = 'x^7i3fk9j=hhqo$zn#^(*xf1vgeairjy2zh!1gu4332z_$(u7k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['119.23.222.136', 'www.d4vidz.top', 'd4vidz.top']
 
 
 # Application definition
@@ -132,10 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-# 公共静态文件 STATICFILES_DIRS　这一个元组，里面放置开发时静态文件自动搜寻的目录.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
