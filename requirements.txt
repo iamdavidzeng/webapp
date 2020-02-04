@@ -52,7 +52,7 @@ pluggy==0.6.0
 ply==3.11
 py==1.5.3
 pycparser==2.18
-pycryptodome==3.4.7
+pycryptodome==3.6.6
 pycurl==7.43.0.1
 Pygments==2.2.0
 PyJWT==1.5.3
