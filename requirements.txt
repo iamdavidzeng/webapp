@@ -65,7 +65,7 @@ pytz==2017.3
 PyYAML==5.1
 qrcode==5.3
 reload==0.9
-requests==2.18.4
+requests==2.20.0
 reversion==0.2
 selenium==3.11.0
 shellescape==3.4.1
