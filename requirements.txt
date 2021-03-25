@@ -62,7 +62,7 @@ pyPdf==1.13
 pytest==3.5.0
 python-dateutil==2.6.1
 pytz==2017.3
-PyYAML==5.1
+PyYAML==5.4
 qrcode==5.3
 reload==0.9
 requests==2.18.4
