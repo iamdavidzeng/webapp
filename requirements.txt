@@ -54,7 +54,7 @@ py==1.5.3
 pycparser==2.18
 pycryptodome==3.6.6
 pycurl==7.43.0.1
-Pygments==2.2.0
+Pygments==2.7.4
 PyJWT==1.5.3
 PyMySQL==0.8.0
 pyOpenSSL==17.5.0
