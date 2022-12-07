@@ -6,7 +6,7 @@ asn1crypto==0.24.0
 async-timeout==2.0.0
 attrs==17.4.0
 beautifulsoup4==4.6.0
-certifi==2017.11.5
+certifi==2022.12.7
 cffi==1.11.4
 chardet==3.0.4
 colorama==0.3.9
